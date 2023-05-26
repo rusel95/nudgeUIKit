@@ -7,13 +7,23 @@
 
 import UIKit
 
+import nudgeBase
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+
+        UNUserNotificationCenter.current().delegate = self
+
+        do {
+            try NudgeBase.registerForPushNotifications()
+        } catch {
+            print(error)
+        }
+        application.registerForRemoteNotifications()
+
         return true
     }
 
@@ -31,6 +41,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    func application(
+        _ application: UIApplication,
+        didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+        fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) ->Void
+    ) {
+        NudgeBase.receivedPush(notificationPayload:userInfo, application: application)
+    }
+
+    func application(
+        _ application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
+    ) {
+        NudgeBase.onRegisteredForNotifications(deviceToken: deviceToken)
+    }
+
+    func application(
+        _ application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: Error
+    ) {
+        NudgeBase.onFailedToRegisterForNotifications(error:error)
+    }
+
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+    ) {
+        completionHandler([[.banner, .sound, .badge]])
+    }
+
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void
+    ) {
+        NudgeBase.tappedNotification(notification: response.notification)
+        completionHandler()
+    }
 
 }
 

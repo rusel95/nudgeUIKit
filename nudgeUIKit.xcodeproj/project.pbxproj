@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7405B5F32A1F89DF00B5679E /* nudgeBase in Frameworks */ = {isa = PBXBuildFile; productRef = 7405B5F22A1F89DF00B5679E /* nudgeBase */; };
 		741EAA022A1E67D000A3037D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EAA012A1E67D000A3037D /* AppDelegate.swift */; };
 		741EAA042A1E67D000A3037D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EAA032A1E67D000A3037D /* SceneDelegate.swift */; };
 		741EAA062A1E67D000A3037D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741EAA052A1E67D000A3037D /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		741EAA1E2A1E67D200A3037D /* nudgeUIKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nudgeUIKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		741EAA222A1E67D200A3037D /* nudgeUIKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nudgeUIKitUITests.swift; sourceTree = "<group>"; };
 		741EAA242A1E67D200A3037D /* nudgeUIKitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nudgeUIKitUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		741EAA342A1E6C2500A3037D /* nudgeUIKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nudgeUIKit.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7405B5F32A1F89DF00B5679E /* nudgeBase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +102,7 @@
 		741EAA002A1E67D000A3037D /* nudgeUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				741EAA342A1E6C2500A3037D /* nudgeUIKit.entitlements */,
 				741EAA012A1E67D000A3037D /* AppDelegate.swift */,
 				741EAA032A1E67D000A3037D /* SceneDelegate.swift */,
 				741EAA052A1E67D000A3037D /* ViewController.swift */,
@@ -143,6 +147,9 @@
 			dependencies = (
 			);
 			name = nudgeUIKit;
+			packageProductDependencies = (
+				7405B5F22A1F89DF00B5679E /* nudgeBase */,
+			);
 			productName = nudgeUIKit;
 			productReference = 741EA9FE2A1E67D000A3037D /* nudgeUIKit.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +222,9 @@
 				Base,
 			);
 			mainGroup = 741EA9F52A1E67D000A3037D;
+			packageReferences = (
+				7405B5F12A1F89DF00B5679E /* XCRemoteSwiftPackageReference "nudgeBase" */,
+			);
 			productRefGroup = 741EA9FF2A1E67D000A3037D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -421,7 +431,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -435,6 +445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = nudgeUIKit/nudgeUIKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FWHF624C4H;
@@ -463,6 +474,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = nudgeUIKit/nudgeUIKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FWHF624C4H;
@@ -602,6 +614,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7405B5F12A1F89DF00B5679E /* XCRemoteSwiftPackageReference "nudgeBase" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getlarky/nudgeBase.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7405B5F22A1F89DF00B5679E /* nudgeBase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7405B5F12A1F89DF00B5679E /* XCRemoteSwiftPackageReference "nudgeBase" */;
+			productName = nudgeBase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 741EA9F62A1E67D000A3037D /* Project object */;
 }

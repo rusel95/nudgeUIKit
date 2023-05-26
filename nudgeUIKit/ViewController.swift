@@ -6,12 +6,22 @@
 //
 
 import UIKit
+import nudgeBase
 
 class ViewController: UIViewController {
+
+
+    var myNudge: NudgeBase!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+        myNudge = NudgeBase(options: [
+            "apiKey": "1-vSJMUcOBnduLONZtvxCQ",
+            "enabled": true,
+            "federationId":  "test1"
+        ])
     }
 
 

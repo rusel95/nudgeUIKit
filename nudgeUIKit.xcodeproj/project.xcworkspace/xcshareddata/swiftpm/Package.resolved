@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "analytics-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:segmentio/analytics-ios.git",
+      "state" : {
+        "revision" : "78423aaae2e48e32a07246850f37c76f3d34cb84",
+        "version" : "4.1.8"
+      }
+    },
+    {
+      "identity" : "nudgebase",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getlarky/nudgeBase.git",
+      "state" : {
+        "revision" : "5ec9dfa1d22492086e1330e051f5dcbffd0e6af5",
+        "version" : "0.5.0"
+      }
+    }
+  ],
+  "version" : 2
+}
